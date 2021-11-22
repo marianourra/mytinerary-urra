@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.png';
-
+import { Link } from "react-router-dom";
 
 
 export default class Hero extends React.Component {
@@ -19,7 +19,7 @@ export default class Hero extends React.Component {
             cities!
           </h3>
 
-          <button class="button btn btn-outline-info" type="button">Let's go!</button>
+          <Link to="cities"> <button class="button btn btn-outline" type="button">Let's go!</button></Link>
      
 
 </div>

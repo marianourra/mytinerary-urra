@@ -23,7 +23,9 @@ background-position: center;
 }
 
 .container-fluid{
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 4rem;
+  justify-content:center;
 }
 
 
@@ -39,9 +41,13 @@ background-position: center;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
-
+h3{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 0 1px 1px rgb(7, 7, 7);
+}
 
 footer{
 display: flex;
@@ -162,11 +168,22 @@ background-color: #00000046;
   }
 
   .button{
-    height: 10rem;
+    height: 4rem;
     width: 12rem;
     font-weight: bold;
     font-size: larger;
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    background-color: #dac8c6;
+    color: black
+  }
+
+  button:hover{
+    background-color: #fd8679;
+    box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+    -webkit-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+    -moz-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
   }
 
   .logoprincipal{
@@ -245,14 +262,25 @@ a{
 
 figure>img:hover{
   transition: ease all .5s;
-  transform: scale(1.2, 1.2)
+  transform: scale(1.2, 1.2);
+  box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+  -webkit-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+  -moz-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
 }
 
 a>img:hover{
   transition: ease all .5s;
-  transform: scale(1.2, 1.2)
+  transform: scale(1.2, 1.2);
+
 }
 
 .alto{
   height: 79vh;
+}
+
+h2{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }

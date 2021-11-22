@@ -13,7 +13,6 @@ export default class Footer extends React.Component {
             <footer>
 
 <figure>
-
 <a href="http://www.facebook.com"><img className="logo1" src={fb} alt="fb" /></a>
 <a href="http://www.instagram.com"><img className="logo2" src={insta} alt="insta" /></a>
 <a href="http://www.whatsapp.com"><img className="logo3" src={whatsapp} alt="whatsapp"/></a>

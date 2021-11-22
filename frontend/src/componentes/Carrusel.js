@@ -64,6 +64,8 @@ function Carrusel() {
   return (
 
     <div className="container-fluid">
+
+      <h2> Popular MyTineraries! </h2> 
     <Carousel>
       <Carousel.Item interval={1000}>
 
