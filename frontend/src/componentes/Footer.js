@@ -12,20 +12,21 @@ export default class Footer extends React.Component {
 
             <footer>
 
-<div className="redes">
+<figure>
 
 <a href="http://www.facebook.com"><img className="logo1" src={fb} alt="fb" /></a>
 <a href="http://www.instagram.com"><img className="logo2" src={insta} alt="insta" /></a>
 <a href="http://www.whatsapp.com"><img className="logo3" src={whatsapp} alt="whatsapp"/></a>
-</div>
+</figure>
 
 <div className="footernav">
-<Link to="/">Home</Link>
-<Link to="cities">Cities</Link>
+<Link to="/"><h6>Home</h6></Link>
+<br/>
+<Link to="cities"><h6>Cities</h6></Link>
 </div>
 
+<a href="https://www.linkedin.com/in/mariano-urra/"> <h5> &copy; Mariano Urra </h5> </a>
 
-<h5> &copy; Mariano Urra </h5>
 
         </footer>
 

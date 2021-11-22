@@ -14,9 +14,18 @@ body{
 background: linear-gradient(90deg, rgba(140,186,186,1) 35%, rgba(232,180,102,1) 100%);
 background: linear-gradient(180deg, #ffba5f 35%, #ba4973 100%);
 width: 100%;
+background-image: url(./assets/travel-trip-journey.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
 
 
 }
+
+.container-fluid{
+  margin-bottom: 2rem;
+}
+
 
 .header{
  height: 4rem;
@@ -175,6 +184,7 @@ height: 200px;
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 3rem;
 }
 
 .carru{
@@ -184,6 +194,10 @@ height: 200px;
 
 h5{
   color:aliceblue
+}
+
+h5:hover{
+  transform: scale(1.1, 1.1)
 }
 
 .logo1{
@@ -205,6 +219,12 @@ h6{
   text-decoration: none;
 }
 
+h6:hover{
+  transform: scale(1.2, 1.2)
+}
+
+
+
 a{
   text-decoration: none;
 }
@@ -214,4 +234,25 @@ a{
   display: flex;
   justify-content: center;
   text-shadow: 0 0 10px black;
+}
+
+.footernav{
+  color:aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+figure>img:hover{
+  transition: ease all .5s;
+  transform: scale(1.2, 1.2)
+}
+
+a>img:hover{
+  transition: ease all .5s;
+  transform: scale(1.2, 1.2)
+}
+
+.alto{
+  height: 79vh;
 }

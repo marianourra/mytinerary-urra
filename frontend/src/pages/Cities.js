@@ -15,6 +15,10 @@ export default class Home extends React.Component {
 
     <Header/>
     
+<div className="alto">
+
+</div>
+
     <Footer />
    
    </div>

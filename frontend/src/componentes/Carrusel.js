@@ -73,7 +73,7 @@ function Carrusel() {
 
           return (
 
-            <div className="cardCountry col-10 col-md-6">
+            <div className="cardCountry col-6 col-md-6">
               
               <figure>
                 

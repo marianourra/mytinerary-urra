@@ -17,17 +17,13 @@ export default class Header extends React.Component {
               <span></span>
               <span></span>
             </label>
-          </div> <Link to="/">Home</Link>
+          </div>
+
+          <div className="nav-links">
+            <Link to="/">Home</Link>
             <Link to="cities">Cities</Link>
-
-          <div class="nav-links">
-           
-
           </div>
           <img className="user" src={user} alt="user" />
-          
-    
-
         </div>
       </div>
     );

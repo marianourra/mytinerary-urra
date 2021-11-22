@@ -10,7 +10,7 @@ export default class Hero extends React.Component {
         return (
 
 <div className="hero">
-´
+
 
         <img className="logoprincipal" src={logo} alt="logo" />       
 
@@ -19,7 +19,7 @@ export default class Hero extends React.Component {
             cities!
           </h3>
 
-          <button class="button btn btn-outline-warning" type="button">Let's go!</button>
+          <button class="button btn btn-outline-info" type="button">Let's go!</button>
      
 
 </div>
