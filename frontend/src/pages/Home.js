@@ -12,25 +12,18 @@ export default class Home extends React.Component {
  
    return (
 
-    <div className="divHome">
+    <div>
 
-    
-  <   div className="header">
+
+
       <Header />
-      </div> 
 
-
-      <div className="hero">
       <Hero />
-      </div> 
-
-      <div className="carousel">
+ 
       <Carrusel />
-      </div> 
 
-     <div className="footer">
      <Footer />
-     </div>  
+
 
    </div>
 
