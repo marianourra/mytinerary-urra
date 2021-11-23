@@ -23,7 +23,7 @@ export default class Header extends React.Component {
             <Link to="/">Home</Link>
             <Link to="cities"><ion-icon name="airplane-outline"></ion-icon>Cities</Link>
           </div>
-          <a href=""><img className="user" src={user} alt="user"></img></a>
+          <Link to="/"><img className="user" src={user} alt="user"></img></Link>
         </div>
       </div>
     );
