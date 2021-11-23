@@ -196,6 +196,7 @@ figure > img {
 margin-top: 1rem;
 width: 410px;
 height: 200px;
+padding: .3rem
 }
 
 .cardCountry{
@@ -203,12 +204,8 @@ height: 200px;
   width: 100%;
   justify-content: center;
   margin-bottom: 3rem;
+ 
 }
-
-.carru{
-  display: flex;
-  flex-direction: row;
-} 
 
 h5{
   color:aliceblue
@@ -267,6 +264,7 @@ figure>img:hover{
   box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
   -webkit-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
   -moz-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+  z-index: 5;
 }
 
 a>img:hover{
@@ -285,4 +283,9 @@ h2{
   align-items: center;
   margin-bottom: 1.5rem;
   text-shadow: 2px 1px 10px rgb(202, 102, 102);
+ 
+}
+
+p{
+  color:white;
 }

@@ -24,8 +24,10 @@ export default class Footer extends React.Component {
 <Link to="cities"><h6>Cities</h6></Link>
 </div>
 
-<a href="https://www.linkedin.com/in/mariano-urra/"> <h5> &copy; Mariano Urra </h5> </a>
-
+<div>
+<p>Developed by</p>
+<a href="https://www.linkedin.com/in/mariano-urra/"> <h6> &copy; Mariano Urra </h6> </a>
+</div>
 
         </footer>
 
