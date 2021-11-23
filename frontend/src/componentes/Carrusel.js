@@ -82,7 +82,8 @@ function Carrusel() {
                 <img src={city.image} alt={city.name} />
                 
                 <div className="layer center">
-                  
+                  <br/>
+                  <br/>
                   <h3 className="text-city">{city.name}</h3>
                
                 </div>
@@ -104,6 +105,8 @@ function Carrusel() {
               <figure>
                 <img src={city.image} alt={city.name} />
                 <div className="layer center">
+                <br/>
+                <br/>
                   <h3 className="text-city">{city.name}</h3>
                 </div>
               </figure>
@@ -121,6 +124,8 @@ function Carrusel() {
               <figure>
                 <img src={city.image} alt={city.name} />
                 <div className="layer center">
+                <br/>
+                <br/>
                   <h3 className="text-city">{city.name}</h3>
                 </div>
               </figure>
