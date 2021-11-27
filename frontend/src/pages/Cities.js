@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react';
 import Header from '../componentes/Header'
 import Footer from '../componentes/Footer'
 import { Card } from 'react-bootstrap'
+import axios from 'axios';
 
 function Cities () {
   
   const [cities, setCities] = useState ([])
   
   useEffect(()=>{
-      fetch("http://localhost:4000/api/cities")
-      .then(res => res.json())
+      axios ("http://localhost:4000/api/cities")
+      .then(res => (res.data))
       .then(data => setCities(data.response.cities))
       .catch(err => console.error(err.message))  
   },[])
