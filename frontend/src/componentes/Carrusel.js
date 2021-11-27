@@ -25,7 +25,7 @@ function Carrusel() {
 
   const cities2 = [
     {
-      name: 'Nueva York',
+      name: 'New York',
       image: "./assets/ny.jpg"
     },
     {
@@ -56,7 +56,7 @@ function Carrusel() {
       image: "./assets/dubai.jpg"
     },
     {
-      name: 'Estambul',
+      name: 'Istambul',
       image: "./assets/estambul.jpg"
     },
   ];

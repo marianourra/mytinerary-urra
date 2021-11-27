@@ -21,7 +21,7 @@ export default class Footer extends React.Component {
 <div className="footernav">
 <Link to="/"><h6>Home</h6></Link>
 <br/>
-<Link to="cities"><h6>Cities</h6></Link>
+<Link to="/cities"><h6>Cities</h6></Link>
 </div>
 
 <div>

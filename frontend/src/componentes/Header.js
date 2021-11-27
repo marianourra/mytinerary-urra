@@ -7,11 +7,11 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <div class="nav">
+        <div className="nav">
         <Link to="/"><img className="logo" src={logo} alt="logo" /></Link>
           <input type="checkbox" id="nav-check" />
-          <div class="nav-header"></div>
-          <div class="nav-btn">
+          <div className="nav-header"></div>
+          <div className="nav-btn">
             <label for="nav-check">
               <span></span>
               <span></span>
@@ -21,7 +21,7 @@ export default class Header extends React.Component {
 
           <div className="nav-links">
             <Link to="/">Home</Link>
-            <Link to="cities"><ion-icon name="airplane-outline"></ion-icon>Cities</Link>
+            <Link to="/cities"><ion-icon name="airplane-outline"></ion-icon>Cities</Link>
           </div>
           <Link to="/"><img className="user" src={user} alt="user"></img></Link>
         </div>
