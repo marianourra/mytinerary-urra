@@ -327,15 +327,80 @@ img.card-overlay{
   height: 40vh;
   width: 100%;
   background-position: center;
+  margin-bottom: 4rem;
 }
 
-.generalCity{
-display: flex;
-flex-wrap: wrap;
-justify-content: center;  
+.ordenar{
+  display: flex;
+  flex-direction: row;
+  margin: 1.5rem;
 }
 
 input{
   height: 2.5rem;
-  width: 20rem
+  width: 20rem;
+  margin-left: 1.5rem;
+}
+
+.banners{
+  margin: 1.5rem;
+  margin-bottom: 2rem;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.banners:hover{
+  box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+    -webkit-box-shadow: 2px 4px 50px 35px #dac8c6;
+    -moz-box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
+  transition: ease all .3s;
+  transform: scale(1.1, 1.1);
+}
+
+.titulocard{
+  font-size: 2.5rem;
+  text-shadow: 5px 5.5px 5.5px rgb(7, 7, 7);
+}
+
+.color{
+  color:aliceblue;
+}
+
+.notfound {
+height:70vh;
+margin: 1.5rem;
+}
+
+.notfound >h3{
+  color:black
+}
+
+.formato{
+  font-size: 2rem;
+  
+}
+
+.back{
+  height: 3rem;
+  width: 10rem;
+  margin: 1.5rem;
+  margin-bottom: 6rem;
+  background-color: #dac8c6;
+  color: black;
+  font-weight: bold;
+}
+
+.back:hover{
+  transition: ease all .5s;
+  transform: scale(1.1, 1.1);  
+}
+
+.pais{
+  font-size: 1.5rem;
+  text-shadow: 0 1.5px 1.5px rgb(7, 7, 7);
+  
 }

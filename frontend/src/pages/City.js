@@ -40,16 +40,17 @@ export default class City extends React.Component {
 <div className="cityHero" style={{
      backgroundImage: `url(${city.image})`,
      backgroundSize: "cover"}} > 
-     <h3>{city.cityName}</h3>
-     <p>{city.country}</p>
-    <Link to={ `/cities`}>Back to Cities  </Link>
+     <h3 className="formato">{city.cityName}</h3>
+     <p className="pais">{city.country}</p>
 </div>
+
+<h2>UNDER CONSTRUCTION</h2>
 
 </main>
 
-<button>
-<Link to={`/cities`}>Back to Cities  </Link>
-</button>
+<Link to={`/cities`}>
+<button className="back"> Back to Cities </button>  
+</Link>
 
        <Footer />
   
