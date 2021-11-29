@@ -1,13 +1,13 @@
+require('dotenv').config() 
 const express = require("express")
 const cors = require("cors")
-
+require("./config/database")
 const app = express()
 app.use(cors())
 
-require('dotenv').config() 
 const Router = require("./routes/routes") 
 
-
+app.use(express.json())
 // app.get("/api/cities",(req, res) => {
 //     res.json({response:{cities}})
 //     })
