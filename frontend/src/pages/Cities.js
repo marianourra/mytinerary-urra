@@ -2,15 +2,15 @@ import React, {useEffect, useState} from 'react';
 import Header from '../componentes/Header'
 import Footer from '../componentes/Footer'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 function Cities () {
   
-  const [cities, setCities] = useState ([])
+  const [cities, setCities] = useState([])
   
   useEffect(()=>{
-      axios ("http://localhost:4000/api/cities")
-      .then(res => (res.data))
-      .then(data => setCities(data.response.cities))
+      axios.get("http://localhost:4000/api/cities")
+      .then(data => setCities(data.data.response))
       .catch(err => console.error(err.message))  
   },[])
 
@@ -26,7 +26,7 @@ function Cities () {
  {cities.map(city => 
  
  <figure>
- <img alt="foto" style={{
+ <img alt={city.city} style={{
      backgroundImage: `url(${city.image})`,
      backgroundSize: "cover"}} />
          <h3>{city.city}</h3>
@@ -35,6 +35,8 @@ function Cities () {
            This is a wider card with supporting text below as a natural lead-in to
            additional content. This content is a little bit longer.
          </Card.Text> */}
+
+<Link to={`/city/${city._id}`}>Clik aqui  </Link>
 
    </figure>
 
