@@ -11,17 +11,22 @@ export default class City extends React.Component {
       console.log(props)
     }
 
+    state = {
+      city: {}
+    }
+
     id=this.props.params.id
 
     componentDidMount() {
     axios.get("http://localhost:4000/api/cities/" + this.id)
-    .then(res => console.log(res.data.response))
+    .then(res => this.setState({city: res.data.response}))
     
     }
     
     render() {
     
-        
+    const city = this.state.city
+      
      return (
   
       <div>
@@ -32,11 +37,19 @@ export default class City extends React.Component {
 
 <main>
 
+<div className="cityHero" style={{
+     backgroundImage: `url(${city.image})`,
+     backgroundSize: "cover"}} > 
+     <h3>{city.cityName}</h3>
+     <p>{city.country}</p>
+    <Link to={ `/cities`}>Back to Cities  </Link>
+</div>
 
 </main>
 
-
-<Link to={`/cities`}>Clik aqui  </Link>
+<button>
+<Link to={`/cities`}>Back to Cities  </Link>
+</button>
 
        <Footer />
   

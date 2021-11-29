@@ -322,3 +322,20 @@ img.card-overlay{
   max-height: 270px;
   max-width: 845px;
 }
+
+.cityHero{
+  height: 40vh;
+  width: 100%;
+  background-position: center;
+}
+
+.generalCity{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;  
+}
+
+input{
+  height: 2.5rem;
+  width: 20rem
+}

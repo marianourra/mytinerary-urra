@@ -1,55 +1,80 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react'
 import Header from '../componentes/Header'
 import Footer from '../componentes/Footer'
-import axios from 'axios';
-import {Link} from 'react-router-dom'
-
-function Cities () {
-  
-  const [cities, setCities] = useState([])
-  
-  useEffect(()=>{
-      axios.get("http://localhost:4000/api/cities")
-      .then(data => setCities(data.data.response))
-      .catch(err => console.error(err.message))  
-  },[])
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 
 
-   return (
-
-    <div>
-
-  <Header/>
+export default class Cities extends React.Component {
     
-<div className="fondocities">
+    state = {
+        cities: [],
+        citiesFiltred: []
+    }
+    componentDidMount() {
+        fetch("http://localhost:4000/api/cities")
+            .then(res => res.json())
+            .then(data => {
+                this.setState({cities: data.response, citiesFiltred: data.response})
+            })
+            .catch(err => console.error(err))
 
- {cities.map(city => 
- 
- <figure>
- <img alt={city.city} style={{
-     backgroundImage: `url(${city.image})`,
-     backgroundSize: "cover"}} />
-         <h3>{city.city}</h3>
-         <p>{city.country}</p>
-         {/* <Card.Text>
-           This is a wider card with supporting text below as a natural lead-in to
-           additional content. This content is a little bit longer.
-         </Card.Text> */}
+    }
+    searchHandler = (e) => {
 
-<Link to={`/city/${city._id}`}>Clik aqui  </Link>
+            const searchValue = e.target.value.toLowerCase().trim();
+            console.log(searchValue)
+            let filtred = [];
+            filtred = this.state.cities.filter(place => {
+                const city = place.cityName.toLowerCase().trim()
+                return city.startsWith(searchValue)
+            }) 
+            this.setState({citiesFiltred: filtred})
+            console.log(this.state.citiesFiltred)
+            // console.log(this.state.cities)
+        }
+    render() {
 
-   </figure>
+        const {cities, citiesFiltred} = this.state
 
-)} 
+        return (
+            <>
+                <Header/>
+                <main>
+                    <div className="generalCity">
+                      <h2>Search your next trip!</h2>
+                        <div>
+                            <input type="search" placeholder="Search your city!" onChange={this.searchHandler}></input>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h2>Cities</h2>
 
-</div>
-
-    <Footer />
-   
-   </div>
-
-   )
+                                {   
+                                    citiesFiltred.length > 0 
+                                    ?
+                                    citiesFiltred.map(citi => {
+                                        const { _id, cityName, country, image} = citi
+                                        return (
+                                                <Link to={`/city/${_id}`} className="w-100 mb-2">
+                                            <div className="cities-img col-10 col-lg-5 mb-4 me-2 ms-2" key={_id} style={{backgroundImage: `URL(${image})`, backgroundSize: 'cover'}} >
+                                                    <h3 className="w-100">{cityName + " - " + country}</h3>
+                                                    <Button variant="warning" className="more-info">More Info</Button>
+                                            </div>
+                                                </Link> 
+                                        )
+                                        })
+                                    :
+                                    <div className="not-found">
+                                        <h3>City not found</h3>
+                                    </div>
+                                }
+                        </div>
+                    </div>
+                </main>
+                <Footer/>
+            </>
+        )
+    }
 }
-
-export default Cities
-
