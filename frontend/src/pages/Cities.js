@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../componentes/Header'
 import Footer from '../componentes/Footer'
-import { Card } from 'react-bootstrap'
 import axios from 'axios';
 
 function Cities () {
@@ -27,17 +26,16 @@ function Cities () {
  {cities.map(city => 
  
  <figure>
-     <Card className="cardform bg-transparent text-white">
-       <Card.Img src={city.image} alt={city.city} />
-       <Card.ImgOverlay>
+ <img alt="foto" style={{
+     backgroundImage: `url(${city.image})`,
+     backgroundSize: "cover"}} />
          <h3>{city.city}</h3>
          <p>{city.country}</p>
          {/* <Card.Text>
            This is a wider card with supporting text below as a natural lead-in to
            additional content. This content is a little bit longer.
          </Card.Text> */}
-       </Card.ImgOverlay>
-     </Card>
+
    </figure>
 
 )} 
