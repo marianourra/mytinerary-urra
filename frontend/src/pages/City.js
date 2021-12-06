@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesActions"
-// import Tour from "../componentes/Tour" 
 
 
 class City extends React.Component {
@@ -41,24 +40,18 @@ class City extends React.Component {
             <p className="pais">{city.country}</p>
           </div>
 
-          {/* <div className="itineraries">
-            <h2 className="iti italic shadow mb-3">Itineraries</h2>
+          <div className="itineraries">
+            <h2 className="iti italic mb-3">Itineraries</h2>
+          </div>
+          
 
-            {this.props.itinerary.lenght > 0 ?
-              this.props.itinerary.map((itine, index) => {
+            {itineraries.map (itinerarie => {
 
-                return (
+              return (
+                     <h1>{itinerarie.publisherName} </h1> 
+              )
 
-                  <img src={itine.publisherImage}></img>
-
-                )
-              })
-
-
-              
-            }        */}
-            
-        
+            } )}
 
         </main>
 

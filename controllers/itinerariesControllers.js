@@ -50,7 +50,7 @@ const itinerariesControllers = {
         },    
 
         getItinerariesByCity: (req, res) => {
-            Itinerary.find({itinerary: req.params.id})
+            Itinerary.find({city: req.params.id})
             .then((itineraries) => res.json({ response: itineraries }))
             .catch(err => console.log(err))
         },    
@@ -58,3 +58,4 @@ const itinerariesControllers = {
 
 
 module.exports = itinerariesControllers
+
