@@ -12,24 +12,25 @@ export default class Footer extends React.Component {
 
             <footer>
 
-<figure>
-<a href="http://www.facebook.com"><img className="logo1" src={fb} alt="fb" /></a>
-<a href="http://www.instagram.com"><img className="logo2" src={insta} alt="insta" /></a>
-<a href="http://www.whatsapp.com"><img className="logo3" src={whatsapp} alt="whatsapp"/></a>
-</figure>
+                <figure>
+                    <a href="http://www.facebook.com"><img className="logo1" src={fb} alt="fb" /></a>
+                    <a href="http://www.instagram.com"><img className="logo2" src={insta} alt="insta" /></a>
+                    <a href="http://www.whatsapp.com"><img className="logo3" src={whatsapp} alt="whatsapp"/></a>
+                </figure>
 
-<div className="footernav">
-<Link to="/"><h6>Home</h6></Link>
-<br/>
-<Link to="/cities"><h6>Cities</h6></Link>
-</div>
+                <div className="footernav">
+                    <Link to="/"><h6>Home</h6></Link>
+                    <br/>
+                <Link to="/cities"><h6>Cities</h6></Link>
 
-<div>
-<p>Developed by</p>
-<a href="https://www.linkedin.com/in/mariano-urra/"> <h6> &copy; Mariano Urra </h6> </a>
-</div>
+                </div>
+                    <p className="marcafooter">MyTinerary 2021 &reg;</p>
+                <div>
+                    <p>Developed by</p>
+                    <a href="https://www.linkedin.com/in/mariano-urra/"> <h6> &copy; Mariano Urra </h6> </a>
+                </div>
 
-        </footer>
+            </footer>
 
 
 

@@ -2,34 +2,19 @@ import React from "react";
 import Header from "../componentes/Header";
 import Footer from "../componentes/Footer";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
+import citiesActions from "../redux/actions/citiesActions";
 
-export default class Cities extends React.Component {
-  state = {
-    cities: [],
-    citiesFiltred: [],
-  };
+class Cities extends React.Component {
+  
   componentDidMount() {
-    fetch("http://localhost:4000/api/cities")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ cities: data.response, citiesFiltred: data.response });
-      })
-      .catch((err) => console.error(err));
+    console.log(this.props.getCities())
   }
-  searchHandler = (e) => {
-    const searchValue = e.target.value.toLowerCase().trim();
-    console.log(searchValue);
-    let filtred = [];
-    filtred = this.state.cities.filter((place) => {
-      const city = place.cityName.toLowerCase().trim();
-      return city.startsWith(searchValue);
-    });
-    this.setState({ citiesFiltred: filtred });
-    console.log(this.state.citiesFiltred);
-    // console.log(this.state.cities)
-  };
+
   render() {
-    const { cities, citiesFiltred } = this.state;
+
+    const { cities, citiesFiltered } = this.props;
+    console.log(cities)
 
     return (
       <>
@@ -37,17 +22,16 @@ export default class Cities extends React.Component {
         <main>
           <div className="ordenar">
             <h2 className="color"> Search your city!</h2>
-            <input
-              type="search"
+            <input type="search"
               placeholder="   Search by city name"
-              onChange={this.searchHandler}
+              onChange={e => this.props.getFiltered(cities, e.target.value)}
             ></input>
 
           </div>
 
           <div>
-            {citiesFiltred.length > 0 ? (
-              citiesFiltred.map((citi) => {
+            {citiesFiltered.length > 0 ? (
+              citiesFiltered.map((citi) => {
                 const { _id, cityName, country, image } = citi;
                 return (
                   <Link to={`/city/${_id}`}>
@@ -78,3 +62,19 @@ export default class Cities extends React.Component {
     );
   }
 }
+
+
+
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities,
+  getFiltered: citiesActions.getFiltered
+}
+
+const mapStateToProps = state => {
+  return {
+      cities: state.cities.allCities,
+      citiesFiltered: state.cities.citiesFiltered
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities);

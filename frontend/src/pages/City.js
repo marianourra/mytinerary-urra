@@ -1,64 +1,95 @@
 import React from 'react'
 import Footer from '../componentes/Footer'
 import Header from '../componentes/Header'
-import axios from 'axios';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import citiesActions from "../redux/actions/citiesActions"
+import itinerariesActions from "../redux/actions/itinerariesActions"
+// import Tour from "../componentes/Tour" 
 
-export default class City extends React.Component {
-  
-      constructor(props) {
-      super (props)
-      console.log(props)
-    }
 
-    state = {
-      city: {}
-    }
+class City extends React.Component {
 
-    id=this.props.params.id
+  id = this.props.params.id
 
-    componentDidMount() {
-    axios.get("http://localhost:4000/api/cities/" + this.id)
-    .then(res => this.setState({city: res.data.response}))
-    
-    }
-    
-    render() {
-    
-    const city = this.state.city
-      
-     return (
-  
+  componentDidMount() {
+    this.props.getCities()
+    this.props.getOneCity(this.id);
+    this.props.getItinerariesByCity(this.id)
+  }
+
+  render() {
+
+    const { city, itineraries } = this.props
+    console.log(city)
+    console.log(itineraries)
+    return (
+
       <div>
-  
-  
-  
+
+
+
         <Header />
 
-<main>
+        <main>
 
-<div className="cityHero" style={{
-     backgroundImage: `url(${city.image})`,
-     backgroundSize: "cover"}} > 
-     <h3 className="formato">{city.cityName}</h3>
-     <p className="pais">{city.country}</p>
-</div>
+          <div className="cityHero" style={{
+            backgroundImage: `url(${city.image})`,
+            backgroundSize: "cover"
+          }} >
+            <h3 className="formato">{city.cityName}</h3>
+            <p className="pais">{city.country}</p>
+          </div>
 
-<h2>UNDER CONSTRUCTION</h2>
+          {/* <div className="itineraries">
+            <h2 className="iti italic shadow mb-3">Itineraries</h2>
 
-</main>
+            {this.props.itinerary.lenght > 0 ?
+              this.props.itinerary.map((itine, index) => {
 
-<Link to={`/cities`}>
-<button className="back"> Back to Cities </button>  
-</Link>
+                return (
 
-       <Footer />
-  
-  
+                  <img src={itine.publisherImage}></img>
+
+                )
+              })
 
 
-     </div>
-  
-     )
-  
-  }}
+              
+            }        */}
+            
+        
+
+        </main>
+
+        <Link to={`/cities`}>
+          <button className="back"> Back to Cities </button>
+        </Link>
+
+        <Footer />
+
+
+
+
+      </div>
+
+    )
+
+  }
+}
+
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities,
+  getItinerariesByCity: itinerariesActions.getItinerariesByCity,
+  getOneCity: citiesActions.getOneCity
+}
+
+const mapStateToProps = state => {
+  return {
+    cities: state.cities.allCities,
+    itineraries: state.itineraries.itineraries,
+    city: state.cities.oneCity
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City);
