@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesActions"
-
+import { Card } from 'react-bootstrap'
+import { Accordion } from 'react-bootstrap'
 
 class City extends React.Component {
 
@@ -40,18 +41,57 @@ class City extends React.Component {
             <p className="pais">{city.country}</p>
           </div>
 
-          <div className="itineraries">
+          <div className="iti">
             <h2 className="iti italic mb-3">Itineraries</h2>
           </div>
-          
 
-            {itineraries.map (itinerarie => {
 
-              return (
-                     <h1>{itinerarie.publisherName} </h1> 
-              )
+            
 
-            } )}
+          {itineraries.map(itinerarie => {
+
+            return (
+              <div className="itineraries container-fluid">
+
+
+                <Card style={{ width: '25rem' }}>
+                  <Card.Title>{itinerarie.tourName}</Card.Title>
+                  <Card.Img variant="top" src={itinerarie.publisherImage} />
+                  <h1>{itinerarie.publisherName}</h1>
+                  <br />
+                  ❤️{itinerarie.likes}
+                  <br />
+                  <br />
+                  ⏱️{itinerarie.duration}
+                  <br />
+                  <br />
+                  💲{itinerarie.price}
+
+                  <Card.Body>
+
+
+                    <Accordion>
+                      <Accordion.Item eventKey="0">
+                        <Accordion.Header>View more</Accordion.Header>
+                        <Accordion.Body>
+                          UNDER CONSTRUCTION
+                        </Accordion.Body>
+                      </Accordion.Item>
+
+                    </Accordion>
+
+                  </Card.Body>
+
+                </Card>
+
+
+
+
+              </div>
+
+            )
+
+          })}
 
         </main>
 
