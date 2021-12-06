@@ -46,9 +46,11 @@ class City extends React.Component {
           </div>
 
 
-            
 
-          {itineraries.map(itinerarie => {
+
+           { itineraries.length > 0 ? 
+          
+          itineraries.map(itinerarie => {
 
             return (
               <div className="itineraries container-fluid">
@@ -91,7 +93,10 @@ class City extends React.Component {
 
             )
 
-          })}
+          })
+        
+           : <h2>There are no itineraries available</h2>
+        }
 
         </main>
 
