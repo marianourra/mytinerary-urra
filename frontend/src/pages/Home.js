@@ -5,6 +5,8 @@ import Carrusel from '../componentes/Carrusel';
 import Footer from '../componentes/Footer'
 
 
+
+
 export default class Home extends React.Component {
   
   render() {
@@ -21,6 +23,10 @@ export default class Home extends React.Component {
       <Hero />
  
       <Carrusel />
+
+
+ 
+
 
      <Footer />
 

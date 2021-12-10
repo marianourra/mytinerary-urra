@@ -180,7 +180,7 @@ background-color: #00000046;
     color: black
   }
 
-  button:hover{
+  .animacion:hover{
     color: aliceblue;
     background-color: #fd8679;
     box-shadow: 2px 4px 109px 35px rgba(0,0,0,0.63);
@@ -417,4 +417,21 @@ margin: 1.5rem;
 .itineraries{
   display: flex;
   flex-direction: row;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 1.5rem;
+}
+
+.google{
+  height: 3rem;
+  width: 12rem;
+}
+
+.signin{
+  margin-bottom: 20rem
 }
