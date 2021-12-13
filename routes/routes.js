@@ -3,6 +3,8 @@ const citiesControllers = require('../controllers/citiesControllers')
 const {getCities, oneCity, newCity, deleteCity, modifiedCity} = citiesControllers
 const itinerariesControllers = require('../controllers/itinerariesControllers')
 const {getItineraries, oneItinerary, newItinerary, deleteItinerary, modifiyItinerary, getItinerariesByCity } = itinerariesControllers
+const userControllers = require ("../controllers/userControllers")
+const {addNewUser} = userControllers 
 
 Router.route('/cities')
 .get(getCities)
@@ -24,6 +26,12 @@ Router.route('/itineraries/:id')
 
 Router.route('/itineraries/city/:id')
 .get(getItinerariesByCity)
+
+Router.route('/signup')
+.post(addNewUser)
+
+Router.route('/signin')
+.post(addNewUser)
 
 module.exports = Router
 
