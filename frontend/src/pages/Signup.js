@@ -242,13 +242,16 @@ const SignUp = props => {
            <div className="form">
            <form className="signup">
                 <input type="text" onChange={inputHandler} name= "name" placeholder="Name" />
-                <input type="text" onChange={inputHandler} name= "name" placeholder="Name" />
-                <input type="text" onChange={inputHandler} name= "name" placeholder="Name" />
+                <input type="text" onChange={inputHandler} name= "surname" placeholder="Surname" />
+                <input type="email" onChange={inputHandler} name= "email" placeholder="E-mail" />
+                <input type="password" onChange={inputHandler} name= "password" placeholder="Password" />
+                <input type="password" onChange={inputHandler} name= "password" placeholder=" Confirm Password" />
+                <input type="url" onChange={inputHandler} name= "url" placeholder="Profile picture url" />
                 <br />
-                <label class="textcolor" for="grade">Country</label>
+                <label class="textcolor" for="grade"></label>
                             <br />
                             <select name="country" id="country">
-                                <option value="Select an option">Select an option</option>
+                                <option value="Select an option">Select country</option>
                                 {countries.map((country) => {
 
                                     return (

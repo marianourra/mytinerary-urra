@@ -5,9 +5,9 @@ const userControllers = {
 
     addNewUser: async (req, res) => {
 
-        const {name, email, password} = req.body
+        const {name, surname, email, password, image_url, country} = req.body
         const hashedPassword = bcryptjs.hashSync(password)
-        const newUser = new User ({name, email, password: hashedPassword})
+        const newUser = new User ({name, surname, email, password: hashedPassword, image_url, country})
         try{
             let repeatedUser = await User.findOne({email: email})
             if (repeatedUser) throw new Error
@@ -17,6 +17,22 @@ const userControllers = {
             res.json({success: false, response: error.message})
         } 
 
+    },
+
+    signUser: async (req, res) => {
+        const {email, password} = req.body
+        try {
+            let savedUser = await User.findOne({email}) 
+            if (!savedUser) throw new Error ("Email and/or password incorrect")
+
+            let match = bcryptjs.compareSync(password, savedUser.password) 
+            if (!match) throw new Error ("Email and/or password incorrect")
+            res.json ({success: true, response: {name: savedUser.name}})    
+
+        } catch(error) {
+            res.json({success: false, response: error.message })
+        }
+       
     }
 
 }
