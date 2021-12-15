@@ -2,9 +2,12 @@ import {useState} from "react";
 import userActions from '../redux/actions/userActions'
 import {connect} from 'react-redux'
 import Header from '../componentes/Header';
-import Footer from '../componentes/Footer'
+import Footer from '../componentes/Footer';
+import GoogleLogin from 'react-google-login';
 
 const SignIn = (props) => {
+
+    
 
     const [signUser, setSignUser] = useState ({
         
@@ -20,6 +23,16 @@ const SignIn = (props) => {
             [e.target.name]: e.target.value
         })
     }
+
+    const responseGoogle =  res => {
+        let logGoogleUser = {
+            email: res.profileObj.email,
+            password: res.profileObj.googleId,
+            googleFlag: true
+        }
+        props.signIn(logGoogleUser)
+    }
+
 
     const submitForm = () => {
 
@@ -43,6 +56,14 @@ const SignIn = (props) => {
                 </form>
                         
                 <button onClick={submitForm}>Sign in</button>
+                <GoogleLogin
+    clientId="266238118019-1ldlfel51gu67jj7bc4q4vqqk4ke2lue.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
+                
             </div>
         </main>
 

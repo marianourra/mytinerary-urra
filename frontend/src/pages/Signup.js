@@ -4,6 +4,7 @@ import userActions from '../redux/actions/userActions'
 import { Link } from "react-router-dom";
 import Header from "../componentes/Header";
 import Footer from '../componentes/Footer';
+import GoogleLogin from 'react-google-login';
 
 
 const SignUp = props => {
@@ -206,12 +207,33 @@ const SignUp = props => {
         "Zimbabue",
     ];
 
+    const responseGoogle = (response) => {
+        console.log(response);
+
+    const googleUser = {
+        name: response.profileObj.givenName,
+        surname: response.profileObj.familyName, 
+        email: response.profileObj.email,
+        password: response.profileObj.googleId,
+        image_url: response.profileObj.imageUrl,
+        country: "",
+        google: true,
+    }   
+    
+    props.signUp(googleUser)
+      }
+
+
+
+
     const [newUser, setNewUser] = useState ({
 
         name: "",
+        surname: "", 
         email: "",
         password: "",
-
+        image_url: "",
+        country: "",
     })
 
 
@@ -266,6 +288,15 @@ const SignUp = props => {
                 
            </form>
                 <button onClick={submitForm}>Sign up</button>
+
+                <GoogleLogin
+    clientId="266238118019-1ldlfel51gu67jj7bc4q4vqqk4ke2lue.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
+
                 </div>
 
                 <p> Do you already have an account? <Link to="/signin"><ion-icon name="airplane-outline"></ion-icon>Sign in</Link></p>
