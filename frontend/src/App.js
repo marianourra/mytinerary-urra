@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cities from './pages/Cities'
@@ -6,10 +6,21 @@ import Signup from './pages/Signup'
 import Signin from './pages/Signin'
 import CitySinProps from "./pages/City";
 import withRouter from "./utils/withRouter";
+import {connect} from "react-redux";
+import userActions from "./redux/actions/userActions";
+
 
 const City = withRouter(CitySinProps)
 
-const App = () => {
+const App = (props) => {
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      props.logInLS(localStorage.getItem("token"))
+    }
+
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>
@@ -23,4 +34,19 @@ const App = () => {
   );
 };
 
-export default App;
+
+const mapStateToProps = (state) => {
+
+  return {
+
+      token: state.users.token
+
+  }
+}
+
+const mapDispatchToProps = {
+
+  logInLS: userActions.logInLS
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

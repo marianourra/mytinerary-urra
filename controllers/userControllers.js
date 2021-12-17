@@ -41,12 +41,29 @@ const userControllers = {
 
             const token = jwt.sign({...savedUser}, process.env.SECRETORKEY)
 
-            res.json ({success: true, response: {name: savedUser.name}})    
+            res.json ({success: true, response: {name: savedUser.name, image_url: savedUser.image_url, token}})    
 
         } catch(error) {
             res.json({success: false, response: error.message })
         }
        
+    },
+
+    deleteUser: async (req, res) => {
+        try {
+            let deleteUser = await User.findOneAndDelete({_id: req.params.id})
+            if (deleteUser) {
+                res.json({success: true, response: deleteUser})
+            } else {
+                throw new Error()
+            }
+        } catch(error) {
+            res.json({success: false, response: error.message})
+        }
+    }, 
+
+    tokenVerification: (req, res) => {
+        res.json({name: req.user.name, image_url: req.user.image_url, _id: req.user._id})
     }
 
 }

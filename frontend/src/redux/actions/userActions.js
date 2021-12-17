@@ -34,6 +34,28 @@ const userActions = {
             return response
         }                                           
         
+    },
+
+    logOut: () => {
+        return async (dispatch, getState) => {
+            dispatch({type: "LOG_OUT"})
+        }
+    },
+
+    logInLS: (token) => {
+        return async (dispatch, getState) => {
+            try {
+                let response = await axios.get("http://localhost:4000/api/tokenVerification", {
+                headers: {
+                    Authorization: "Bearer "+token
+                }
+                
+                 })
+                dispatch({type: "LOGGED", payload: {token, name: response.data.name, image_url: response.data.image_url, _id: response.data._id}})
+            } catch (error) {
+                return dispatch ({type: "LOG_OUT"})
+            } 
+        }
     }
 
 }   

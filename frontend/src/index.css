@@ -474,3 +474,8 @@ select{
 input{
   margin-top: .5rem;
 }
+
+.profilepic{
+  border-radius: 50%;
+  width: 58px
+}

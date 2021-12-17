@@ -3,9 +3,14 @@ import logo from "../assets/logo.png";
 import user from "../assets/user.png";
 import { Link } from "react-router-dom";
 import {Dropdown } from "react-bootstrap";
+import userActions from "../redux/actions/userActions"
+import {connect} from "react-redux";
 
-export default class Header extends React.Component {
-  render() {
+
+const Header = (props) => {
+  
+  console.log("props", props)
+
     return (
       <div className="header">
         <div className="nav">
@@ -24,18 +29,36 @@ export default class Header extends React.Component {
             <Link to="/">Home</Link>
             <Link to="/cities"><ion-icon name="airplane-outline"></ion-icon>Cities</Link>
           </div>
-          <Link to="/"><img className="user" src={user} alt="user"></img></Link>
+          {props.name ? <img className="profilepic" src={props.image_url} alt="user"/> : <Link to="/"><img className="user" src={user} alt="user"/></Link>  }
+          
           <Dropdown>
   <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
-    <Dropdown.Item href="/signup">Sign up</Dropdown.Item>
-    <Dropdown.Item href="/signin">Sign in</Dropdown.Item>
+    {props.name ? 
+    <><Dropdown.Item href="/signin"><a>Log out</a></Dropdown.Item></>
+     : 
+    <><Dropdown.Item href="/signup">Sign up</Dropdown.Item> 
+    <Dropdown.Item href="/signin">Sign in</Dropdown.Item></>}
   </Dropdown.Menu>
 </Dropdown>
         </div>
       </div>
     );
   }
+
+
+const mapStateToProps = (state) => {
+  return {
+    token: state.users.token,
+    name: state.users.name,
+    image_url: state.users.image_url
+  }
 }
+
+const mapDispatchToProps ={
+  logOut:userActions.logOut
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Header)

@@ -5,6 +5,7 @@ const itinerariesControllers = require('../controllers/itinerariesControllers')
 const {getItineraries, oneItinerary, newItinerary, deleteItinerary, modifiyItinerary, getItinerariesByCity } = itinerariesControllers
 const userControllers = require ("../controllers/userControllers")
 const {addNewUser, signUser } = userControllers 
+const passport = require('passport')
 
 Router.route('/cities')
 .get(getCities)
@@ -32,6 +33,9 @@ Router.route('/user/signUp')
 
 Router.route('/user/signIn')
 .post(signUser)
+
+Router.route("/tokenVerification")
+.get(passport.authenticate("jwt", {session: false}),userControllers.tokenVerification)
 
 module.exports = Router
 
