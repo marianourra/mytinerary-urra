@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import {connect} from 'react-redux'
+import { useState } from 'react'
+import { connect } from 'react-redux'
 import userActions from '../redux/actions/userActions'
 import { Link } from "react-router-dom";
 import Header from "../componentes/Header";
@@ -210,26 +210,26 @@ const SignUp = props => {
     const responseGoogle = (response) => {
         console.log(response);
 
-    const googleUser = {
-        name: response.profileObj.givenName,
-        surname: response.profileObj.familyName, 
-        email: response.profileObj.email,
-        password: response.profileObj.googleId,
-        image_url: response.profileObj.imageUrl,
-        country: "",
-        google: true,
-    }   
-    
-    props.signUp(googleUser)
-      }
+        const googleUser = {
+            name: response.profileObj.givenName,
+            surname: response.profileObj.familyName,
+            email: response.profileObj.email,
+            password: response.profileObj.googleId,
+            image_url: response.profileObj.imageUrl,
+            country: "",
+            google: true,
+        }
+
+        props.signUp(googleUser)
+    }
 
 
 
 
-    const [newUser, setNewUser] = useState ({
+    const [newUser, setNewUser] = useState({
 
         name: "",
-        surname: "", 
+        surname: "",
         email: "",
         password: "",
         image_url: "",
@@ -239,9 +239,9 @@ const SignUp = props => {
 
     const inputHandler = (e) => {
         console.log(e.target.value)
-        setNewUser ({
-        ...newUser,
-        [e.target.name] : e.target.value 
+        setNewUser({
+            ...newUser,
+            [e.target.name]: e.target.value
 
         })
 
@@ -256,54 +256,60 @@ const SignUp = props => {
 
         <>
 
-        <Header />
+            <Header />
 
-        <main>
-           <h1>Welcome {props.name}</h1>     
+            <main className="main">
+                <h1 className="welcome">Welcome to MyTinerary registration{props.name}!</h1>
 
-           <div className="form">
-           <form className="signup">
-                <input type="text" onChange={inputHandler} name= "name" placeholder="Name" />
-                <input type="text" onChange={inputHandler} name= "surname" placeholder="Surname" />
-                <input type="email" onChange={inputHandler} name= "email" placeholder="E-mail" />
-                <input type="password" onChange={inputHandler} name= "password" placeholder="Password" />
-                <input type="password" onChange={inputHandler} name= "password" placeholder=" Confirm Password" />
-                <input type="url" onChange={inputHandler} name= "url" placeholder="Profile picture url" />
-                <br />
-                <label class="textcolor" for="grade"></label>
-                            <br />
-                            <select name="country" id="country">
-                                <option value="Select an option">Select country</option>
-                                {countries.map((country) => {
 
-                                    return (
+                <div className="form">
+                    <form className="signup">
+                    <h4> Complete your information!</h4>
+                        <input type="text" onChange={inputHandler} name="name" placeholder="Name" />
+                        <input type="text" onChange={inputHandler} name="surname" placeholder="Surname" />
+                        <input type="email" onChange={inputHandler} name="email" placeholder="E-mail" />
+                        <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
+                        <input type="password" onChange={inputHandler} name="password" placeholder="Confirm Password" />
+                        <input type="url" onChange={inputHandler} name="url" placeholder="Profile picture url" />
+                        <br />
+                        <label class="textcolor" for="grade"></label>
+                        <br />
+                        <select name="country" id="country">
+                            <option value="Select an option">Select country</option>
+                            {countries.map((country) => {
 
-                                        <option value={country}>{country}</option>
+                                return (
 
-                                    )
-                                }
-                                )}
+                                    <option value={country}>{country}</option>
 
-                            </select>
-                
-           </form>
-                <button onClick={submitForm}>Sign up</button>
+                                )
+                            }
+                            )}
 
-                <GoogleLogin
-    clientId="266238118019-1ldlfel51gu67jj7bc4q4vqqk4ke2lue.apps.googleusercontent.com"
-    buttonText="Login"
-    onSuccess={responseGoogle}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  />
+                        </select>
 
+                    </form>
+                  
+                        <button className="signupbutton" onClick={submitForm}>Sign up</button>
+
+                        <GoogleLogin
+                            clientId="266238118019-1ldlfel51gu67jj7bc4q4vqqk4ke2lue.apps.googleusercontent.com"
+                            buttonText="Sign up with Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />
+
+                  
+
+                    <p className="doyou"> Do you already have an account? <Link to="/signin"><ion-icon name="airplane-outline"></ion-icon>Sign in</Link></p>
                 </div>
 
-                <p> Do you already have an account? <Link to="/signin"><ion-icon name="airplane-outline"></ion-icon>Sign in</Link></p>
 
-        </main>
 
-        <Footer />
+            </main>
+
+            <Footer />
 
         </>
 
@@ -326,4 +332,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect (mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

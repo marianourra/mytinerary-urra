@@ -46,19 +46,20 @@ const SignIn = (props) => {
 
         <Header />
 
-        <main>
-           <h1>Welcome {props.name}</h1>     
+        <main className="marginb">
+        <h1 className="welcome">Welcome to MyTinerary {props.name}!</h1>    
 
            <div className="form">
                 <form className="signup">
+                <h4> Login into your account!</h4>
                         <input type="email" onChange={inputHandler} name= "email" placeholder="E-mail" />
                         <input type="password" onChange={inputHandler} name= "password" placeholder="Password" />
                 </form>
                         
-                <button onClick={submitForm}>Sign in</button>
+                <button className="signupbutton" onClick={submitForm}>Sign in</button>
                 <GoogleLogin
     clientId="266238118019-1ldlfel51gu67jj7bc4q4vqqk4ke2lue.apps.googleusercontent.com"
-    buttonText="Login"
+    buttonText="Login with Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}

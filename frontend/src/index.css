@@ -433,3 +433,44 @@ margin: 1.5rem;
   width: 12rem;
 }
 
+form{
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  background-color: rgba(122, 122, 122, 0.26);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+select{
+  width: 20rem;
+  margin-left: 1.3rem;
+}
+
+.signupbutton{
+  width: 7rem;
+  height: 2.6rem;
+  background-color: aliceblue;
+  margin-bottom: 1rem;
+}
+
+.doyou{
+  font-size: 1rem;
+  margin-top: .5rem;
+  margin-bottom: 3rem;
+}
+
+.welcome{
+ margin: 2rem;
+}
+
+.marginb{
+  margin-bottom: 9rem;
+}
+
+input{
+  margin-top: .5rem;
+}
