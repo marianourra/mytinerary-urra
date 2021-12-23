@@ -11,7 +11,9 @@ console.log(props)
             return (
                    
                 <div key={activity._id}>
-                <p className="activities">{activity.activity}</p>
+                <ul>
+                <li className="activities">{activity.activity}</li>
+                </ul>
                 </div>
             )
         }) }

@@ -82,6 +82,7 @@ const [like, setLike] = useState(false);
                 <Accordion.Header onClick={()=> handlerActivities()}> Activities included</Accordion.Header>
                 <Accordion.Body>
                   <Activity activities={activities}/>
+                  <br/>
                   <Comments itineraryId={itinerarie._id} comments={comments} /> 
                 </Accordion.Body>
               </Accordion.Item>
