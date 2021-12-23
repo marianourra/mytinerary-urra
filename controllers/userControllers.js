@@ -17,7 +17,7 @@ const userControllers = {
             const token = await jwt.sign({...newUser}, process.env.SECRETORKEY)   
 
             await newUser.save()
-            res.json ({success: true, response: {token, name: newUser.name, _id: newUser._id}, error: null })
+            res.json ({success: true, response: {token, name: newUser.name, image_url: newUser.image_url, _id: newUser._id}, error: null })
         }
 
            

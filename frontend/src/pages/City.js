@@ -5,24 +5,29 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesActions"
-import { Card } from 'react-bootstrap'
-import { Accordion } from 'react-bootstrap'
+
+
+
+import Itineraries from '../componentes/Itineraries';
 
 class City extends React.Component {
 
   id = this.props.params.id
 
+
   componentDidMount() {
     this.props.getCities()
     this.props.getOneCity(this.id);
     this.props.getItinerariesByCity(this.id)
+
+
   }
 
   render() {
 
     const { city, itineraries } = this.props
-    console.log(city)
-    console.log(itineraries)
+
+
     return (
 
       <div>
@@ -48,55 +53,19 @@ class City extends React.Component {
 
 
 
-           { itineraries.length > 0 ? 
-          
-          itineraries.map(itinerarie => {
+          {itineraries.length > 0 ?
 
-            return (
-              <div className="itineraries container-fluid">
+            itineraries.map(itinerarie => {
 
+              return (
+                <Itineraries itinerarie={itinerarie} />
 
-                <Card style={{ width: '25rem' }}>
-                  <Card.Title>{itinerarie.tourName}</Card.Title>
-                  <Card.Img variant="top" src={itinerarie.publisherImage} />
-                  <h1>{itinerarie.publisherName}</h1>
-                  <br />
-                  ❤️{itinerarie.likes}
-                  <br />
-                  <br />
-                  ⏱️{itinerarie.duration}
-                  <br />
-                  <br />
-                  💲{itinerarie.price}
+              )
 
-                  <Card.Body>
+            })
 
-
-                    <Accordion>
-                      <Accordion.Item eventKey="0">
-                        <Accordion.Header>View more</Accordion.Header>
-                        <Accordion.Body>
-                          UNDER CONSTRUCTION
-                        </Accordion.Body>
-                      </Accordion.Item>
-
-                    </Accordion>
-
-                  </Card.Body>
-
-                </Card>
-
-
-
-
-              </div>
-
-            )
-
-          })
-        
-           : <h2>There are no itineraries available</h2>
-        }
+            : <h2>There are no itineraries available</h2>
+          }
 
         </main>
 
@@ -119,7 +88,8 @@ class City extends React.Component {
 const mapDispatchToProps = {
   getCities: citiesActions.getCities,
   getItinerariesByCity: itinerariesActions.getItinerariesByCity,
-  getOneCity: citiesActions.getOneCity
+  getOneCity: citiesActions.getOneCity,
+
 }
 
 const mapStateToProps = state => {
@@ -127,6 +97,7 @@ const mapStateToProps = state => {
     cities: state.cities.allCities,
     itineraries: state.itineraries.itineraries,
     city: state.cities.oneCity
+
   }
 }
 

@@ -29,7 +29,7 @@ const Header = (props) => {
             <Link to="/">Home</Link>
             <Link to="/cities"><ion-icon name="airplane-outline"></ion-icon>Cities</Link>
           </div>
-          {props.name ? <img className="profilepic" src={props.image_url} alt="user"/> : <Link to="/"><img className="user" src={user} alt="user"/></Link>  }
+          {props.name ? <img className="profilepic" src={props.image_url} alt="user"/> : <Link to="/signin"><img className="user" src={user} alt="user"/></Link>  }
           
           <Dropdown>
   <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
@@ -37,7 +37,7 @@ const Header = (props) => {
 
   <Dropdown.Menu>
     {props.name ? 
-    <><Dropdown.Item href="/signin"><a>Log out</a></Dropdown.Item></>
+    <><Dropdown.Item onClick={()=> props.logOut()} href="/signin">Log out</Dropdown.Item></>
      : 
     <><Dropdown.Item href="/signup">Sign up</Dropdown.Item> 
     <Dropdown.Item href="/signin">Sign in</Dropdown.Item></>}

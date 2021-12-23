@@ -479,3 +479,33 @@ input{
   border-radius: 50%;
   width: 58px
 }
+
+.publisher {
+width: 100px;
+display: flex;
+justify-content: center;
+border-radius: 50%;
+}
+
+.iconsdiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.activities{
+  color: black;
+  font-size: .8rem;
+}
+
+.comment-author {
+  color: black;
+}
+
+.comment-content{
+  color: black;
+}
+
+.commentsTittle{
+  font-size: 1.2rem;
+}
